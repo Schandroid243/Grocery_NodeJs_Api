@@ -29,7 +29,7 @@ app.use(errors.errorHandler);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const PORT = process.env.PORT || 3000;
-const IP = process.env.IP || "192.168.18.13";
+const IP = process.env.IP || "192.168.91.193";
 
 app.listen(PORT, IP, () => {
   console.log(`listening on port:  ${PORT} and ip: ${IP}`);
