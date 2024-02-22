@@ -2,6 +2,7 @@ const categoryController = require("../controllers/categories.controller");
 const productController = require("../controllers/products.controller");
 const userController = require("../controllers/users.controller");
 const sliderController = require("../controllers/sliders.controller");
+const related_productController = require("../controllers/related_products.controller");
 const express = require("express");
 const router = express.Router();
 
@@ -25,6 +26,10 @@ router.get("/slider", sliderController.findAll);
 router.get("/slider/:id", sliderController.findOne);
 router.put("/slider/:id", sliderController.update);
 router.delete("/slider/:id", sliderController.delete);
+
+//Related Products Routes
+router.post("/relatedProduct", related_productController.create);
+router.delete("/relatedProduct/:id", related_productController.delete);
 
 //User Routes
 router.post("/register", userController.register);
