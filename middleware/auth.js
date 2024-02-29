@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const { TOKEN_KEY, tokenLife } = require("../config/configToken");
 
-const authenticationToken = (req, res, next) => {
+const authenticateToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
 
@@ -31,6 +31,6 @@ const generateAccessToken = (userModel) => {
 };
 
 module.exports = {
-  authenticationToken,
+  authenticateToken,
   generateAccessToken,
 };
