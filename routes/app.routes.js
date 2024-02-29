@@ -3,8 +3,15 @@ const productController = require("../controllers/products.controller");
 const userController = require("../controllers/users.controller");
 const sliderController = require("../controllers/sliders.controller");
 const related_productController = require("../controllers/related_products.controller");
+const cartController = require("../controllers/cart.controller");
+const { authenticateToken } = require("../middleware/auth");
 const express = require("express");
 const router = express.Router();
+
+//Cart Routes
+router.post("/cart", [authenticateToken], cartController.create);
+router.get("/cart", [authenticateToken], cartController.findAll);
+router.delete("/cart", [authenticateToken], cartController.delete);
 
 //Category Routes
 router.post("/category", categoryController.create);
