@@ -69,24 +69,44 @@ async function getCart(params, callback) {
     }
 
     // Extract and format information
+    // const cartInfo = {
+    //   cartId: response._id.toString(),
+    //   userId: response.userId,
+    //   products: response.products.map((product) => ({
+    //     productId: product.product._id.toString(),
+    //     productName: product.product.productName,
+    //     productPrice: product.product.productPrice,
+    //     productSalePrice: product.product.productSalePrice,
+    //     productImage: product.product.productImage,
+    //     category: {
+    //       categoryId: product.product.category._id.toString(),
+    //       categoryName: product.product.category.categoryName,
+    //     },
+    //     qty: product.qty,
+    //     _id: product._id,
+    //   })),
+    // };
+
     const cartInfo = {
       cartId: response._id.toString(),
       userId: response.userId,
       products: response.products.map((product) => ({
-        productId: product.product._id.toString(),
-        productName: product.product.productName,
-        productPrice: product.product.productPrice,
-        productSalePrice: product.product.productSalePrice,
-        productImage: product.product.productImage,
-        category: {
-          categoryId: product.product.category._id.toString(),
-          categoryName: product.product.category.categoryName,
+        product: {
+          productId: product.product._id.toString(),
+          productName: product.product.productName,
+          productPrice: product.product.productPrice,
+          productSalePrice: product.product.productSalePrice,
+          productImage: product.product.productImage,
+          category: {
+            categoryId: product.product.category._id.toString(),
+            categoryName: product.product.category.categoryName,
+          },
         },
         qty: product.qty,
         _id: product._id,
       })),
     };
-
+    console.log(cartInfo);
     return callback(null, cartInfo);
   } catch (error) {
     return callback(error);
