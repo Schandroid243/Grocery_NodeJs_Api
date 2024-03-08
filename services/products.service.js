@@ -46,9 +46,7 @@ async function getProducts(params, callback) {
   }
 
   if (categoryId) {
-    condition["categoryId"] = {
-      $regex: new RegExp(categoryId),
-    };
+    condition["category"] = categoryId;
   }
 
   if (params.productIds) {
