@@ -1,6 +1,6 @@
 # Grocery_NodeJs_Api
 
-**E-commerce Node.js/Express API with MVC, services, uploads, MongoDB, env config, middleware, and Swagger documentation**
+**Ecomly E-commerce Node.js/Express API with MVC, services, uploads, MongoDB, env config, middleware, and Swagger documentation**
 
 ---
 
