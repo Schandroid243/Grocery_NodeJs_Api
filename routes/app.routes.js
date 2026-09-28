@@ -1,7 +1,17 @@
 const categoryController = require("../controllers/categories.controller");
 const productController = require("../controllers/products.controller");
+const userController = require("../controllers/users.controller");
+const sliderController = require("../controllers/sliders.controller");
+const related_productController = require("../controllers/related_products.controller");
+const cartController = require("../controllers/cart.controller");
+const { authenticateToken } = require("../middleware/auth");
 const express = require("express");
 const router = express.Router();
+
+//Cart Routes
+router.post("/cart", [authenticateToken], cartController.create);
+router.get("/cart", [authenticateToken], cartController.findAll);
+router.delete("/cart", [authenticateToken], cartController.delete);
 
 //Category Routes
 router.post("/category", categoryController.create);
@@ -16,5 +26,20 @@ router.get("/product", productController.findAll);
 router.get("/product/:id", productController.findOne);
 router.put("/product/:id", productController.update);
 router.delete("/product/:id", productController.delete);
+
+//Slider Routes
+router.post("/slider", sliderController.create);
+router.get("/slider", sliderController.findAll);
+router.get("/slider/:id", sliderController.findOne);
+router.put("/slider/:id", sliderController.update);
+router.delete("/slider/:id", sliderController.delete);
+
+//Related Products Routes
+router.post("/relatedProduct", related_productController.create);
+router.delete("/relatedProduct/:id", related_productController.delete);
+
+//User Routes
+router.post("/register", userController.register);
+router.post("/login", userController.login);
 
 module.exports = router;

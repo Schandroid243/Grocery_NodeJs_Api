@@ -1,5 +1,5 @@
 const MONGO_DB_CONFIG = {
-  DB: "REMOVED",
+  DB: "",
   PAGE_SIZE: 10,
 };
 

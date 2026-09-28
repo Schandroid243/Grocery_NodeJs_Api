@@ -39,10 +39,12 @@ exports.create = (req, res, next) => {
 
 exports.findAll = (req, res, next) => {
   var model = {
+    productIds: req.query.productIds,
     productName: req.query.productName,
     categoryId: req.query.categoryId,
     pageSize: req.query.pageSize,
     page: req.query.page,
+    sort: req.query.sort,
   };
 
   productService.getProducts(model, (err, results) => {
