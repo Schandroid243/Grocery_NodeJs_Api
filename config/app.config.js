@@ -1,5 +1,5 @@
 const MONGO_DB_CONFIG = {
-  DB: "",
+  DB: process.env.DB_URL,
   PAGE_SIZE: 10,
 };
 
