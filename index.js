@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+require("dotenv").config();
+const fs = require("fs");
 const { MONGO_DB_CONFIG } = require("./config/app.config");
 const errors = require("./middleware/errors");
 const swaggerUi = require("swagger-ui-express"),
@@ -27,6 +29,10 @@ app.use("/api", require("./routes/app.routes"));
 //Errors handling
 app.use(errors.errorHandler);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+["category", "products", "sliders"].forEach((dir) => {
+  fs.mkdirSync(`./uploads/${dir}`, { recursive: true });
+});
 
 const PORT = process.env.PORT || 3000;
 const IP = process.env.IP || "192.168.121.193";

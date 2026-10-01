@@ -6,7 +6,7 @@
 
 ## Problem Solved
 
-Provides a clean, maintainable, scalable backend template for grocery/e-commerce APIs, portfolio showcases, or collaborative projects.
+Provides a clean, maintainable, scalable backend template for grocery/e-commerce APIs, collaborative projects.
 
 ---
 
@@ -39,4 +39,7 @@ Provides a clean, maintainable, scalable backend template for grocery/e-commerce
 git clone https://github.com/Schandroid243/Grocery_NodeJs_Api.git
 cd Grocery_NodeJs_Api
 npm install   # or yarn install
+copy .env.example variables to your local .env file
+To start the server: npm start
+To access the swagger docs type the URL: "/api-docs"
 ```
